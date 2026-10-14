@@ -4,7 +4,7 @@ import ContactForm from "@/components/ContactForm";
 import { WHATSAPP_URL } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Contact Nexus-Tech Solutions | Start Your Project",
+  title: "Start Your Project",
   description:
     "Have an idea, a business problem or a product that needs work? Tell Nexus-Tech Solutions what you're building — or reach us instantly on WhatsApp.",
   alternates: { canonical: "/contact/" },
