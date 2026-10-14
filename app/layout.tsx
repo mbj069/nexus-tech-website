@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 /* Self-hosted fonts: downloaded at build time, zero runtime
    requests to external font CDNs. */
-const display = Space_Grotesk({
+const display = Fraunces({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",

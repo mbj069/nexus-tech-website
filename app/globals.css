@@ -1,26 +1,28 @@
 /* ============================================================
    Nexus-Tech Solutions — design tokens & base styles
-   Draft 03: dark editorial-tech · restrained · performance-first
+   Editorial Warmth · light · restrained · performance-first
    Rules: no component invents its own color, radius, spacing
    or animation duration — everything derives from these tokens.
    ============================================================ */
 
 :root {
-  /* ---- color ---- */
-  --color-bg: #0b0d11;            /* near-black, never pure #000 */
-  --color-surface: #12151c;       /* cards, nav, secondary sections */
-  --color-surface-2: #181d26;
-  --color-text: #edf0f4;          /* off-white */
-  --color-muted: #9aa4b2;         /* descriptions, metadata */
-  --color-faint: #6b7484;
-  --color-accent: #22d3ee;        /* electric cyan — an accent, not a theme */
-  --color-accent-ink: #052e36;    /* text on accent fills */
-  --color-accent-dim: rgba(34, 211, 238, 0.1);
-  --color-border: rgba(255, 255, 255, 0.09);
-  --color-border-strong: rgba(255, 255, 255, 0.18);
+  color-scheme: light;
+
+  /* ---- color · Editorial Warmth ---- */
+  --color-bg: #FAF6EE;            /* warm paper */
+  --color-surface: #FFFFFF;       /* cards, nav */
+  --color-surface-2: #F3EDE0;     /* secondary sections */
+  --color-text: #1C1917;          /* warm ink */
+  --color-muted: #78716C;         /* descriptions, metadata */
+  --color-faint: #857C73;
+  --color-accent: #C2410C;        /* burnt orange — an accent, not a theme */
+  --color-accent-ink: #FFF7ED;    /* text on accent fills */
+  --color-accent-dim: rgba(194, 65, 12, 0.08);
+  --color-border: rgba(28, 25, 23, 0.10);
+  --color-border-strong: rgba(28, 25, 23, 0.22);
 
   /* ---- type (next/font variables override these when loaded) ---- */
-  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
@@ -163,7 +165,7 @@ h1, h2, h3 {
   color: var(--color-accent-ink);
 }
 .btn-primary:hover {
-  background: #7ee7f7;
+  background: #9A380B;
   transform: translateY(-1px);
 }
 .btn-primary .btn-arrow { transition: transform var(--duration-base) var(--ease-out); }
@@ -194,7 +196,7 @@ h1, h2, h3 {
   border-bottom: 1px solid transparent;
 }
 .site-header.is-scrolled {
-  background: rgba(11, 13, 17, 0.86);
+  background: rgba(250, 246, 238, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom-color: var(--color-border);
@@ -281,7 +283,7 @@ h1, h2, h3 {
 .nav-mobile {
   position: fixed;
   inset: 4.5rem 0 0 0;
-  background: rgba(11, 13, 17, 0.98);
+  background: rgba(250, 246, 238, 0.98);
   border-top: 1px solid var(--color-border);
   padding-block: 1.5rem 2.5rem;
   opacity: 0;
@@ -346,9 +348,14 @@ h1, h2, h3 {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-shadow: 0 1px 2px rgba(28, 25, 23, 0.04);
   transition:
     border-color var(--duration-base) var(--ease-out),
-    transform var(--duration-base) var(--ease-out);
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+a.card:hover {
+  box-shadow: 0 8px 24px rgba(28, 25, 23, 0.08);
 }
 a.card { text-decoration: none; color: inherit; display: block; }
 a.card:hover { border-color: var(--color-border-strong); transform: translateY(-2px); }
@@ -373,11 +380,26 @@ a.card:hover .card-arrow { transform: translateX(4px); color: var(--color-accent
   padding: 0.3rem 0.75rem;
 }
 
-/* ---- footer ---- */
+/* ---- footer · deep green ---- */
 .site-footer {
-  border-top: 1px solid var(--color-border);
-  background: var(--color-surface);
+  border-top: none;
+  background: #1C3A2E;
+  color: #F5F0E6;
   padding-block: clamp(3rem, 6vw, 5rem) 2rem;
+}
+.site-footer .brand { color: #F5F0E6; }
+.site-footer .brand-mark {
+  background: rgba(194, 65, 12, 0.18);
+  border-color: rgba(245, 240, 230, 0.25);
+}
+.site-footer .footer-brand p { color: #CFC8B8; }
+.site-footer .microcopy { color: #93A89D; }
+.site-footer .footer-col h3 { color: #93A89D; }
+.site-footer .footer-col a { color: #CFC8B8; }
+.site-footer .footer-col a:hover { color: #FFFFFF; }
+.site-footer .footer-bottom {
+  border-top-color: rgba(245, 240, 230, 0.14);
+  color: #93A89D;
 }
 .footer-grid {
   display: grid;
@@ -530,11 +552,17 @@ a.card:hover .card-arrow { transform: translateX(4px); color: var(--color-accent
   flex-direction: column;
   min-height: 16rem;
   overflow: hidden;
+  box-shadow: 0 1px 2px rgba(28, 25, 23, 0.04);
   transition:
     border-color var(--duration-base) var(--ease-out),
-    transform var(--duration-base) var(--ease-out);
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
 }
-.service-card:hover { border-color: var(--color-border-strong); transform: translateY(-3px); }
+.service-card:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(28, 25, 23, 0.08);
+}
 .service-card .svc-index {
   font-family: var(--font-mono);
   font-size: var(--text-small);
@@ -593,6 +621,7 @@ a.card:hover .card-arrow { transform: translateX(4px); color: var(--color-accent
   justify-content: flex-end;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 1px 2px rgba(28, 25, 23, 0.04);
 }
 .work-card::before {
   content: attr(data-index);
