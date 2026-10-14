@@ -1,17 +1,14 @@
 import type { NextConfig } from "next";
 
 /**
- * Static export: every route becomes real HTML at build time.
- * This is the foundation of the SEO strategy — crawlers receive
- * content, not an empty JavaScript shell.
+ * Server-rendered Next.js on Vercel (no static export): every page is
+ * still prerendered to static HTML at build time for SEO and speed,
+ * while /api/* routes run as serverless functions (contact form).
  */
 const nextConfig: NextConfig = {
-  output: "export",
   trailingSlash: true,
   poweredByHeader: false,
   images: {
-    // Required for static export; images are optimized at build
-    // and served as responsive static files instead.
     unoptimized: true,
   },
 };

@@ -562,6 +562,89 @@ a.card:hover .card-arrow { transform: translateX(4px); color: var(--color-accent
   max-width: 46rem;
 }
 
+/* ---- case studies ---- */
+.case-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+.case-study {
+  display: grid;
+  gap: 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  box-shadow: 0 1px 2px rgba(28, 25, 23, 0.04);
+}
+@media (min-width: 800px) {
+  .case-study { grid-template-columns: 5rem 1fr; gap: 2.5rem; }
+}
+.case-index {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  color: var(--color-border-strong);
+  line-height: 1;
+}
+.case-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-top: 0.5rem;
+}
+.case-tagline {
+  font-size: 1.125rem;
+  color: var(--color-muted);
+  margin-top: 0.75rem;
+  max-width: 44rem;
+}
+.case-points {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.65rem;
+}
+.case-points li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--color-text);
+}
+.case-points li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+.case-study .tag-list { margin-top: 1.5rem; }
+.text-link {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.text-link:hover { color: var(--color-text); }
+
+/* ---- forms: honeypot + status ---- */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+.form-error {
+  color: #9A3412;
+  background: rgba(194, 65, 12, 0.08);
+  border: 1px solid rgba(194, 65, 12, 0.25);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1.25rem;
+}
+button[disabled] { opacity: 0.65; cursor: wait; }
+
 /* ---- reduced motion: content must be immediately visible ---- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
