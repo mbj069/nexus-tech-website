@@ -279,13 +279,20 @@ h1, h2, h3 {
 .menu-toggle.is-open span:first-child { transform: translateY(4px) rotate(45deg); }
 .menu-toggle.is-open span:last-child { transform: translateY(-4px) rotate(-45deg); }
 
-/* mobile nav panel — simple opacity + transform, no animation library */
+/* mobile nav panel — simple opacity + transform, no animation library.
+   NOTE: this must stay a sibling of .site-header, never a child of it.
+   The header's backdrop-filter would become this panel's containing
+   block, collapsing it to zero height. Background is fully opaque so
+   page content can never ghost through. */
 .nav-mobile {
   position: fixed;
   inset: 4.5rem 0 0 0;
-  background: rgba(250, 246, 238, 0.98);
+  z-index: 99;
+  background: var(--color-bg);
   border-top: 1px solid var(--color-border);
+  box-shadow: 0 24px 48px rgba(28, 25, 23, 0.10);
   padding-block: 1.5rem 2.5rem;
+  overflow-y: auto;
   opacity: 0;
   transform: translateY(-10px);
   pointer-events: none;

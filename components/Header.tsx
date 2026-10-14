@@ -47,49 +47,57 @@ export default function Header() {
   }, [open ]);
 
   return (
-    <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
-      <div className="container header-inner">
-        <Link href="/" className="brand" aria-label="Nexus-Tech Solutions — home">
-          <span className="brand-mark" aria-hidden="true">
-            N
-          </span>
-          <span className="brand-word">NEXUS&#8209;TECH</span>
-        </Link>
-
-        <nav className="nav-desktop" aria-label="Primary">
-          {NAV.map((item) => {
-            const active = isActiveLink(item.href, pathname);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`nav-link${active ? " is-active" : ""}`}
-                {...(active ? { "aria-current": "page" as const } : {})}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="header-cta">
-          <Link href="/contact/" className="btn btn-primary btn-sm">
-            Start a Project
+    <>
+      <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
+        <div className="container header-inner">
+          <Link href="/" className="brand" aria-label="Nexus-Tech Solutions — home">
+            <span className="brand-mark" aria-hidden="true">
+              N
+            </span>
+            <span className="brand-word">NEXUS&#8209;TECH</span>
           </Link>
-          <button
-            type="button"
-            className={`menu-toggle${open ? " is-open" : ""}`}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen((value) => !value)}
-          >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-          </button>
-        </div>
-      </div>
 
+          <nav className="nav-desktop" aria-label="Primary">
+            {NAV.map((item) => {
+              const active = isActiveLink(item.href, pathname);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`nav-link${active ? " is-active" : ""}`}
+                  {...(active ? { "aria-current": "page" as const } : {})}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="header-cta">
+            <Link href="/contact/" className="btn btn-primary btn-sm">
+              Start a Project
+            </Link>
+            <button
+              type="button"
+              className={`menu-toggle${open ? " is-open" : ""}`}
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              aria-label={open ? "Close menu" : "Open menu"}
+              onClick={() => setOpen((value) => !value)}
+            >
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/*
+        Sibling of the header (NOT inside it): the header's backdrop-filter
+        blur would otherwise become the containing block for this fixed
+        panel, collapsing it to zero height and letting page content
+        show straight through.
+      */}
       <nav
         id="mobile-nav"
         className={`nav-mobile${open ? " is-open" : ""}`}
@@ -117,6 +125,6 @@ export default function Header() {
           </Link>
         </div>
       </nav>
-    </header>
+    </>
   );
 }
