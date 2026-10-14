@@ -515,6 +515,46 @@ a.card:hover .card-arrow { transform: translateX(4px); color: var(--color-accent
   .offer-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
 }
 
+/* ---- problem band ---- */
+.problem-band {
+  background: var(--color-surface-2);
+  border-block: 1px solid var(--color-border);
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 3rem);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-section);
+}
+.problem-band .section-title { max-width: 20ch; }
+
+/* ---- FAQ (native details/summary — zero JS, fully crawlable) ---- */
+.faq-list { border-top: 1px solid var(--color-border); }
+.faq-item { border-bottom: 1px solid var(--color-border); }
+.faq-item summary {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 1.35rem 2.5rem 1.35rem 0;
+  position: relative;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0.25rem;
+  top: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-accent);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p {
+  color: var(--color-muted);
+  padding: 0 2.5rem 1.5rem 0;
+  max-width: 46rem;
+}
+
 /* ---- reduced motion: content must be immediately visible ---- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
