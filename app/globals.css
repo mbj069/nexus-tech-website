@@ -503,3 +503,217 @@ a.card:hover .card-arrow { transform: translateX(4px); color: var(--color-accent
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ============================================================
+   Homepage sections
+   ============================================================ */
+
+/* introduction — calm editorial rhythm after the hero */
+.intro-section .section-title { max-width: 16ch; }
+
+/* services — asymmetric agency grid (Draft 03 §25) */
+.services-asymmetric {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  margin-top: 2.5rem;
+}
+.service-card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.75rem, 3.5vw, 2.5rem);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  min-height: 16rem;
+  overflow: hidden;
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+.service-card:hover { border-color: var(--color-border-strong); transform: translateY(-3px); }
+.service-card .svc-index {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  letter-spacing: 0.18em;
+  color: var(--color-accent);
+}
+.service-card h3 { font-size: var(--text-h3); margin-top: 0.9rem; }
+.service-card p { color: var(--color-muted); margin-top: 0.75rem; flex: 1; }
+.service-card .svc-link {
+  margin-top: 1.5rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.service-card .svc-link .card-arrow { transition: transform var(--duration-base) var(--ease-out); }
+.service-card:hover .svc-link { color: var(--color-accent); }
+.service-card:hover .svc-link .card-arrow { transform: translateX(4px); }
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+.service-card:hover::after { transform: scaleX(1); }
+
+@media (min-width: 900px) {
+  .services-asymmetric { grid-template-columns: repeat(6, 1fr); }
+  .svc-web { grid-column: span 4; }
+  .svc-software { grid-column: span 2; }
+  .svc-mobile { grid-column: span 3; }
+  .svc-ecom { grid-column: span 3; }
+  .svc-ai { grid-column: span 6; min-height: 13rem; }
+}
+
+/* work — large typographic project cards (visuals arrive with case studies) */
+.work-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  margin-top: 2.5rem;
+}
+.work-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 4vw, 3rem);
+  min-height: 14rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+.work-card::before {
+  content: attr(data-index);
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-border-strong);
+}
+.work-card h3 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-top: 0.6rem; }
+@media (min-width: 900px) {
+  .work-grid { grid-template-columns: repeat(6, 1fr); }
+  .work-card { grid-column: span 3; }
+  .work-card:first-child { grid-column: span 6; min-height: 17rem; }
+}
+
+/* why nexus — editorial pillars */
+.pillars {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  margin-top: 2.5rem;
+}
+.pillar { padding: clamp(1.75rem, 3vw, 2.5rem); }
+.pillar .pillar-index {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  letter-spacing: 0.18em;
+  color: var(--color-accent);
+}
+.pillar h3 { font-size: var(--text-h3); margin: 0.9rem 0 0.6rem; }
+.pillar p { color: var(--color-muted); }
+@media (min-width: 900px) {
+  .pillars { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1280px) {
+  .pillars { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* process — horizontal timeline on desktop, vertical on mobile */
+.process-steps {
+  display: grid;
+  gap: 0;
+  margin-top: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+.process-step {
+  padding: 1.75rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+.process-step:last-child { border-bottom: none; }
+.process-step .step-index {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  letter-spacing: 0.18em;
+  color: var(--color-accent);
+}
+.process-step h3 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  letter-spacing: 0.08em;
+  margin: 0.6rem 0 0.4rem;
+}
+.process-step p { color: var(--color-muted); font-size: 0.9375rem; }
+@media (min-width: 1024px) {
+  .process-steps { grid-template-columns: repeat(5, 1fr); }
+  .process-step { border-bottom: none; border-right: 1px solid var(--color-border); }
+  .process-step:last-child { border-right: none; }
+  .process-step::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 1.5rem; right: 1.5rem;
+    height: 2px;
+    background: var(--color-accent-dim);
+  }
+  .process-step::after {
+    content: "";
+    position: absolute;
+    top: -4px; left: 1.5rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+}
+
+/* technology — typographic categories, no logo wall */
+.tech-cats {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  margin-top: 2.5rem;
+}
+.tech-cat {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.25rem;
+}
+.tech-cat h3 {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+  margin-bottom: 0.75rem;
+}
+.tech-cat p { font-size: 1.0625rem; color: var(--color-text); }
+.tech-cat p span.sep { color: var(--color-accent); margin-inline: 0.5rem; }
+@media (min-width: 768px) {
+  .tech-cats { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 2rem; }
+}
+@media (min-width: 1280px) {
+  .tech-cats { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* company preview */
+.company-preview .lead { margin-top: 1.25rem; }
+.company-preview .btn { margin-top: 2rem; }

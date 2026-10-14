@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import CtaBand from "@/components/CtaBand";
+import Introduction from "@/components/home/Introduction";
+import ServicesSection from "@/components/home/ServicesSection";
+import WorkSection from "@/components/home/WorkSection";
+import WhyNexus from "@/components/home/WhyNexus";
+import ProcessSection from "@/components/home/ProcessSection";
+import TechnologySection from "@/components/home/TechnologySection";
+import CompanySection from "@/components/home/CompanySection";
 
 export const metadata: Metadata = {
   // Uses the default title from the root layout.
@@ -11,6 +19,11 @@ export const metadata: Metadata = {
 
 const CAPABILITIES = ["WEB", "SOFTWARE", "MOBILE", "E-COMMERCE", "AI"];
 
+/**
+ * Homepage flow (locked, Draft 02 §34):
+ * hero → capability strip → introduction → services → selected work →
+ * why Nexus-Tech → process → technology → company → final CTA.
+ */
 export default function HomePage() {
   return (
     <>
@@ -48,10 +61,23 @@ export default function HomePage() {
             ))}
           </div>
         </Reveal>
+      </div>
 
-        {/* Full homepage sections (introduction, services, work, why,
-            process, technology, company, final CTA) are built in the
-            next phase on top of this foundation. */}
+      <Introduction />
+      <ServicesSection />
+      <WorkSection />
+      <WhyNexus />
+      <ProcessSection />
+      <TechnologySection />
+      <CompanySection />
+
+      <div className="container">
+        <section className="section" style={{ paddingTop: 0 }}>
+          <CtaBand
+            title="Have a Project in Mind?"
+            copy="Tell us what you're building. We'll help you figure out the smartest way to build it."
+          />
+        </section>
       </div>
     </>
   );
