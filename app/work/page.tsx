@@ -69,7 +69,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     index: "04",
     name: "CliniX AI",
-    category: "Healthcare / AI",
+    category: "Healthcare / AI · Prototype",
     tagline:
       "Patient-record system with role-based access, audit logging and a bring-your-own-AI layer.",
     points: [

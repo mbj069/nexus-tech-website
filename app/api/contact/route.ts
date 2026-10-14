@@ -2,6 +2,31 @@ import { NextResponse } from "next/server";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_LEN = 5000;
+const MAX_BODY_BYTES = 32 * 1024;
+
+/**
+ * Lightweight abuse protection for a serverless contact endpoint.
+ * In-memory sliding window per IP — instances are ephemeral on Vercel,
+ * so this raises the bar against casual spam/quota-burning rather than
+ * being a hard guarantee. The honeypot catches most bots before this.
+ */
+const WINDOW_MS = 10 * 60 * 1000;
+const MAX_REQUESTS = 5;
+const hits = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
+  recent.push(now);
+  hits.set(ip, recent);
+  if (hits.size > 2000) {
+    // opportunistic prune so the map can't grow unbounded
+    for (const [key, times] of hits) {
+      if (times.every((t) => now - t >= WINDOW_MS)) hits.delete(key);
+    }
+  }
+  return recent.length > MAX_REQUESTS;
+}
 
 /**
  * Contact form endpoint (Vercel serverless function).
@@ -12,6 +37,30 @@ const MAX_LEN = 5000;
  */
 export async function POST(request: Request) {
   try {
+    // Reject oversized bodies before parsing.
+    const contentLength = request.headers.get("content-length");
+    if (contentLength && parseInt(contentLength, 10) > MAX_BODY_BYTES) {
+      return NextResponse.json(
+        { ok: false, error: "Submission too large." },
+        { status: 413 }
+      );
+    }
+
+    // Basic per-IP rate limiting to protect the email quota.
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      "unknown";
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            "Too many submissions — please wait a few minutes or reach us on WhatsApp.",
+        },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json().catch(() => null);
     if (!body || typeof body !== "object") {
       return NextResponse.json(

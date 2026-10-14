@@ -27,6 +27,14 @@ const DEFAULT_TITLE = "Nexus-Tech Solutions | Software & Web Development Company
 const DEFAULT_DESCRIPTION =
   "Nexus-Tech Solutions builds high-performance websites, custom software, mobile apps, e-commerce platforms and AI solutions for businesses worldwide.";
 
+/**
+ * Indexing gate: the staging deployment must never be indexed.
+ * Set SITE_INDEXABLE=true in Vercel env vars only for the production
+ * deployment serving globalnexus.tech. Anything else gets noindex +
+ * a disallow-all robots.txt. Evaluated at build time.
+ */
+const INDEXABLE = process.env.SITE_INDEXABLE === "true";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -48,7 +56,7 @@ export const metadata: Metadata = {
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
   },
-  robots: { index: true, follow: true },
+  robots: INDEXABLE ? { index: true, follow: true } : { index: false, follow: false },
 };
 
 /* Structured data: Organization + WebSite.
@@ -87,6 +95,18 @@ export default function RootLayout({
       lang="en"
       className={`${display.variable} ${bodyFont.variable} ${mono.variable}`}
     >
+      <head>
+        {/*
+          Marks JS availability before paint. The reveal animation's hidden
+          state is scoped to .js — without JavaScript, content is visible
+          by default instead of stuck at opacity: 0.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
+      </head>
       <body>
         <a className="skip-link" href="#main">
           Skip to content

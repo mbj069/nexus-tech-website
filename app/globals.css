@@ -466,7 +466,7 @@ a.card:hover .card-arrow { transform: translateX(4px); color: var(--color-accent
 .form-note p { color: var(--color-muted); margin-bottom: 1rem; }
 
 /* ---- reveal on scroll (Level 1 animation primitive) ---- */
-.reveal {
+.js .reveal {
   opacity: 0;
   transform: translateY(14px);
   transition:

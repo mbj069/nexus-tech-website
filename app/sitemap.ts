@@ -22,10 +22,11 @@ const ROUTES: { path: string; priority: number }[] = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  // lastModified is intentionally omitted: we can't provide accurate
+  // per-page modification dates, and stamping "today" on every URL at
+  // each generation misleads crawlers.
   return ROUTES.map(({ path, priority }) => ({
     url: `${SITE_URL}${path}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority,
   }));
