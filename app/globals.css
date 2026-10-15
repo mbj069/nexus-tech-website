@@ -617,6 +617,18 @@ a.card:hover .card-arrow { transform: translateX(4px); color: var(--color-accent
   font-weight: 700;
 }
 .case-study .tag-list { margin-top: 1.5rem; }
+.case-figure {
+  margin: 0 0 1.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface-2);
+}
+.case-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .text-link {
   color: var(--color-accent);
   font-weight: 600;
@@ -753,19 +765,23 @@ button[disabled] { opacity: 0.65; cursor: wait; }
   overflow: hidden;
   box-shadow: 0 1px 2px rgba(28, 25, 23, 0.04);
 }
-.work-card::before {
-  content: attr(data-index);
-  position: absolute;
-  top: 1.25rem;
-  right: 1.5rem;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 3.5rem;
-  line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--color-border-strong);
-}
 .work-card h3 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-top: 0.6rem; }
+.work-thumb {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface-2);
+}
+.work-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+.work-card:hover .work-thumb img { transform: scale(1.03); }
 @media (min-width: 900px) {
   .work-grid { grid-template-columns: repeat(6, 1fr); }
   .work-card { grid-column: span 3; }

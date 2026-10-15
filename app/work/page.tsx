@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
 
@@ -17,6 +18,7 @@ type CaseStudy = {
   points: string[];
   stack: string[];
   github?: string;
+  image: { src: string; alt: string };
 };
 
 /**
@@ -38,6 +40,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Cloud-based — accessible from anywhere, no on-premise servers",
     ],
     stack: ["React", "Node.js", "MongoDB"],
+    image: { src: "/work/nexuspos-dashboard.webp", alt: "NexusPOS point-of-sale dashboard showing today’s sales analytics, real-time performance gauge, and recent transactions" },
   },
   {
     index: "02",
@@ -51,6 +54,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Built for the day-to-day realities of running a pharmacy",
     ],
     stack: ["PHP"],
+    image: { src: "/work/pharmanexus-inventory.webp", alt: "PharmaNexus pharmacy inventory dashboard with stock levels, a low-stock alert, and automated reorder status" },
     github: "https://github.com/mbj069/pharma-nexus",
   },
   {
@@ -65,6 +69,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Architecture designed to scale with the business",
     ],
     stack: ["TypeScript", "Express"],
+    image: { src: "/work/nexuscrm-pipeline.webp", alt: "NexusCRM sales pipeline kanban board tracking deals from lead intake to closed won" },
   },
   {
     index: "04",
@@ -78,6 +83,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "AI clinical summarizer, AI scribe for SOAP drafts, and natural-language patient search",
     ],
     stack: ["React", "Express", "SQLite", "AI"],
+    image: { src: "/work/clinixai-record.webp", alt: "CliniX AI patient record showing vitals, medications, and the AI-generated clinical summary panel" },
     github: "https://github.com/mbj069/Clinix-ai",
   },
   {
@@ -92,6 +98,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "No installs — plays instantly on the web",
     ],
     stack: ["Canvas", "GSAP"],
+    image: { src: "/work/neon-oroborus-gameplay.webp", alt: "Neon Oroborus arcade gameplay with neon geometric visuals, trail effects, and score display" },
   },
 ];
 
@@ -116,6 +123,16 @@ export default function WorkPage() {
                 {study.index}
               </p>
               <div className="case-body">
+                <figure className="case-figure">
+                  <Image
+                    src={study.image.src}
+                    alt={study.image.alt}
+                    width={1600}
+                    height={893}
+                    sizes="(max-width: 800px) 100vw, 1100px"
+                    loading="lazy"
+                  />
+                </figure>
                 <p className="microcopy">{study.category}</p>
                 <h2 className="case-title">{study.name}</h2>
                 <p className="case-tagline">{study.tagline}</p>

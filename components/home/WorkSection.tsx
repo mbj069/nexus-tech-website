@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
@@ -11,26 +12,31 @@ const PROJECTS = [
     name: "NexusPOS",
     category: "SaaS / Business Software",
     tags: ["React", "Node.js", "MongoDB"],
+    image: "/work/nexuspos-dashboard.webp",
   },
   {
     name: "PharmaNexus",
     category: "Healthcare / Business Software",
     tags: ["PHP", "Inventory", "Stock Tracking"],
+    image: "/work/pharmanexus-inventory.webp",
   },
   {
     name: "NexusCRM",
     category: "CRM / Business Software",
     tags: ["TypeScript", "Express"],
+    image: "/work/nexuscrm-pipeline.webp",
   },
   {
     name: "CliniX AI",
     category: "Healthcare / AI",
     tags: ["React", "Node.js", "SQLite", "AI Gateway"],
+    image: "/work/clinixai-record.webp",
   },
   {
     name: "Neon Oroborus",
     category: "Experimental / Digital Product",
     tags: ["Canvas", "GSAP"],
+    image: "/work/neon-oroborus-gameplay.webp",
   },
 ];
 
@@ -57,6 +63,16 @@ export default function WorkSection() {
                 data-index={`0${i + 1}`}
                 aria-label={`${project.name} — ${project.category}`}
               >
+                <div className="work-thumb" aria-hidden="true">
+                  <Image
+                    src={project.image}
+                    alt=""
+                    width={800}
+                    height={447}
+                    sizes="(max-width: 700px) 100vw, 33vw"
+                    loading="lazy"
+                  />
+                </div>
                 <p className="microcopy">{project.category}</p>
                 <h3>{project.name}</h3>
                 <div className="tag-list" aria-label="Technologies">

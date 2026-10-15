@@ -12,6 +12,10 @@ npm-debug.log*
 # system
 .DS_Store
 
+# project screenshots: binary .webp is generated at build time from
+# the committed .webp.b64 text sources (see scripts/decode-images.mjs)
+public/work/*.webp
+
 # vercel
 .vercel
 
