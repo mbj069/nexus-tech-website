@@ -30,7 +30,7 @@ export default function WebDevelopmentPage() {
       ]}
       capabilitiesHeading="Our Web Development Capabilities"
       capabilities={[
-        { title: "Performance Engineering", description: "Core Web Vitals, sub-second loads and image optimization — speed as a feature, not an afterthought." },
+        { title: "Performance Engineering", description: "Core Web Vitals, fast load times and image optimization — speed as a feature, not an afterthought." },
         { title: "Technical SEO Foundations", description: "Semantic HTML, metadata, sitemaps and structured data built in from day one, not bolted on later." },
         { title: "Mobile-First Responsive", description: "Designed for phones first, where most of your visitors actually are." },
         { title: "Conversion-Focused Design", description: "Layouts that guide visitors toward contacting you — every section earns its place." },

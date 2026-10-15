@@ -77,13 +77,19 @@ Designed for **Vercel**. Connect the repo and deploy; attach the
 `globalnexus.tech` domain to this project at go-live, then set
 `SITE_INDEXABLE=true` and redeploy so indexing turns on.
 
+> **Build command:** set it to `npm run build` in the Vercel project
+> settings (not bare `next build`). Project screenshots are committed as
+> `.webp.b64` text sources in `public/work/` and the `prebuild` step
+> (`scripts/decode-images.mjs`) reconstructs the binary `.webp` files
+> before Next.js builds — skipping it produces broken images.
+
 ## Status
 
 - [x] Foundation: architecture, routing, tokens, typography, header/nav, footer, SEO infra
 - [x] Homepage — full section build
 - [x] Service pages — problem, capabilities, process, related work, FAQ + schema
-- [x] Work — 5 verified case studies (screenshots pending)
+- [x] Work — 5 verified case studies with optimized screenshots
 - [x] Company page
 - [x] Contact — working serverless submission via Resend
-- [x] QA — SEO + performance validation passed
+- [x] QA — built-HTML SEO validation passed (unique titles/descriptions, one H1/page, canonicals, JSON-LD, sitemap/robots); lab performance numbers (Lighthouse/PageSpeed) still to be measured on the production URL
 - [ ] Go-live: domain move + `SITE_INDEXABLE=true` + Search Console sitemap submission

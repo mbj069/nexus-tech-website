@@ -14,7 +14,7 @@
   "name": "nexus-tech-website",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "node scripts/decode-images.mjs && next build",
     "dev": "next dev",
     "start": "next start",
     "prebuild": "node scripts/decode-images.mjs"
