@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     description: DEFAULT_DESCRIPTION,
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Nexus-Tech Solutions — Software Development Company in Lahore, Pakistan",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
   robots: INDEXABLE ? { index: true, follow: true } : { index: false, follow: false },
 };
@@ -80,7 +80,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "Nexus-Tech Solutions",
   url: `${SITE_URL}/`,
-  logo: `${SITE_URL}/logo.png`,
+  logo: `${SITE_URL}/logo.jpg`,
   description: DEFAULT_DESCRIPTION,
   address: {
     "@type": "PostalAddress",

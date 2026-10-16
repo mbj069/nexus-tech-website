@@ -15,9 +15,9 @@ npm-debug.log*
 # project assets: binaries are generated at build time from the
 # committed .b64 text sources (see scripts/decode-images.mjs)
 public/work/*.webp
-public/logo.png
+public/logo.jpg
 public/logo-mark.png
-public/og-image.png
+public/og-image.jpg
 public/favicon.png
 public/apple-touch-icon.png
 
