@@ -82,6 +82,7 @@ const organizationJsonLd = {
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/logo.jpg`,
   description: DEFAULT_DESCRIPTION,
+  telephone: "+923214696040",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Lahore",
