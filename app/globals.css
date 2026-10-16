@@ -231,17 +231,23 @@ h1, h2, h3 {
   color: var(--color-accent);
   font-size: 1rem;
 }
-/* Real logo mark (transparent PNG); replaces the placeholder "N" badge. */
+/* Real logo mark (transparent PNG); replaces the placeholder "N" badge.
+   Uses absolute sizing (not % heights) — percentage heights inside
+   inline-grid resolve inconsistently in Chrome. */
 .brand-mark--img {
   background: none;
   border: none;
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
   width: auto;
   height: 2.1rem;
-  border-radius: 0;
+  padding: 0;
+  flex-shrink: 0;
 }
 .brand-mark--img img {
   display: block;
-  height: 100%;
+  height: 2.1rem;
   width: auto;
 }
 
