@@ -85,6 +85,48 @@ export default function Footer() {
               {/* TODO(phase: contact): official Nexus-Tech email once provisioned */}
             </ul>
           </div>
+
+          <div className="footer-col">
+            <h3>Follow</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/global-nexus-tech-solutions/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/people/Nexus-Tech-Solutions/61595253579736/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/nexus_tech._.solutions/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://x.com/NexusTechh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  X
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="footer-bottom">

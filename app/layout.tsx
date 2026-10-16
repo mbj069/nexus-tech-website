@@ -89,7 +89,13 @@ const organizationJsonLd = {
     addressCountry: "PK",
   },
   areaServed: "Worldwide",
-  sameAs: ["https://github.com/mbj069"],
+  sameAs: [
+    "https://github.com/mbj069",
+    "https://www.linkedin.com/company/global-nexus-tech-solutions/",
+    "https://www.facebook.com/people/Nexus-Tech-Solutions/61595253579736/",
+    "https://x.com/NexusTechh",
+    "https://www.instagram.com/nexus_tech._.solutions/",
+  ],
 };
 
 const websiteJsonLd = {
