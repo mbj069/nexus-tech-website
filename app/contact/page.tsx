@@ -40,7 +40,11 @@ export default function ContactPage() {
               <h2 className="card-title">Prefer WhatsApp?</h2>
               <p style={{ color: "var(--color-muted)", marginTop: "0.75rem" }}>
                 Send us a message directly and tell us what you&apos;re
-                working on.
+                working on. Prefer email? Write to{" "}
+                <a href="mailto:info@globalnexus.tech">
+                  info@globalnexus.tech
+                </a>
+                .
               </p>
               <a
                 className="btn btn-primary"

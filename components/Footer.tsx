@@ -65,6 +65,9 @@ export default function Footer() {
             <h3>Contact</h3>
             <ul>
               <li>
+                <a href="mailto:info@globalnexus.tech">info@globalnexus.tech</a>
+              </li>
+              <li>
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
@@ -82,7 +85,6 @@ export default function Footer() {
                   GitHub
                 </a>
               </li>
-              {/* TODO(phase: contact): official Nexus-Tech email once provisioned */}
             </ul>
           </div>
 
