@@ -51,8 +51,9 @@ export default function Header() {
       <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
         <div className="container header-inner">
           <Link href="/" className="brand" aria-label="Nexus-Tech Solutions — home">
-            <span className="brand-mark" aria-hidden="true">
-              N
+            <span className="brand-mark brand-mark--img" aria-hidden="true">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo-mark.png" alt="" width={72} height={54} />
             </span>
             <span className="brand-word">NEXUS&#8209;TECH</span>
           </Link>

@@ -12,9 +12,14 @@ npm-debug.log*
 # system
 .DS_Store
 
-# project screenshots: binary .webp is generated at build time from
-# the committed .webp.b64 text sources (see scripts/decode-images.mjs)
+# project assets: binaries are generated at build time from the
+# committed .b64 text sources (see scripts/decode-images.mjs)
 public/work/*.webp
+public/logo.png
+public/logo-mark.png
+public/og-image.png
+public/favicon.png
+public/apple-touch-icon.png
 
 # vercel
 .vercel

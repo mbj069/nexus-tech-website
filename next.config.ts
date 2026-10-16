@@ -10,6 +10,20 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   trailingSlash: true,
   poweredByHeader: false,
+  /**
+   * The old staging host must not serve the site as a duplicate:
+   * 301 it to the canonical apex domain.
+   */
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "nexus-tech-website-three.vercel.app" }],
+        destination: "https://globalnexus.tech/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

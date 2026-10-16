@@ -43,6 +43,10 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   alternates: { canonical: "/" },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     type: "website",
     siteName: "Nexus-Tech Solutions",
@@ -50,11 +54,20 @@ export const metadata: Metadata = {
     url: "/",
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Nexus-Tech Solutions — Software Development Company in Lahore, Pakistan",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
+    images: ["/og-image.png"],
   },
   robots: INDEXABLE ? { index: true, follow: true } : { index: false, follow: false },
 };
@@ -67,6 +80,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "Nexus-Tech Solutions",
   url: `${SITE_URL}/`,
+  logo: `${SITE_URL}/logo.png`,
   description: DEFAULT_DESCRIPTION,
   address: {
     "@type": "PostalAddress",

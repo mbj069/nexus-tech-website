@@ -231,6 +231,19 @@ h1, h2, h3 {
   color: var(--color-accent);
   font-size: 1rem;
 }
+/* Real logo mark (transparent PNG); replaces the placeholder "N" badge. */
+.brand-mark--img {
+  background: none;
+  border: none;
+  width: auto;
+  height: 2.1rem;
+  border-radius: 0;
+}
+.brand-mark--img img {
+  display: block;
+  height: 100%;
+  width: auto;
+}
 
 .nav-desktop { display: none; gap: 2rem; }
 .nav-link {
