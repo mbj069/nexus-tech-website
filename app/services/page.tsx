@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
-  title: "Software Development & Digital Solutions",
+  title: "Software Development Services in Lahore",
   description:
     "Explore Nexus-Tech Solutions' services: web development, custom software, mobile apps, e-commerce development and AI solutions — built for performance and growth.",
   alternates: { canonical: "/services/" },

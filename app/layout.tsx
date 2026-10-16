@@ -23,7 +23,7 @@ const mono = JetBrains_Mono({
 });
 
 const SITE_URL = "https://globalnexus.tech";
-const DEFAULT_TITLE = "Nexus-Tech Solutions | Software & Web Development Company";
+const DEFAULT_TITLE = "Nexus-Tech Solutions | Software Company in Lahore";
 const DEFAULT_DESCRIPTION =
   "Nexus-Tech Solutions builds high-performance websites, custom software, mobile apps, e-commerce platforms and AI solutions for businesses worldwide.";
 

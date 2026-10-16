@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "AI Development & AI Solutions",
+  title: "AI Development Company in Lahore",
   description:
     "Nexus-Tech Solutions builds practical AI integrations, assistants, automation and AI-powered applications around real business use cases.",
   alternates: { canonical: "/services/ai-solutions/" },

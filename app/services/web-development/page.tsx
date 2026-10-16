@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Web Development Company",
+  title: "Web Development Company in Lahore",
   description:
     "Nexus-Tech Solutions builds high-performance business websites, web applications and custom web platforms designed for speed, usability and growth.",
   alternates: { canonical: "/services/web-development/" },
