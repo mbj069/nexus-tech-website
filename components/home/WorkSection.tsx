@@ -66,7 +66,7 @@ export default function WorkSection() {
                 <div className="work-thumb" aria-hidden="true">
                   <Image
                     src={project.image}
-                    alt=""
+                    alt={`${project.name} project preview`}
                     width={800}
                     height={447}
                     sizes="(max-width: 700px) 100vw, 33vw"

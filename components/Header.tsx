@@ -53,7 +53,7 @@ export default function Header() {
           <Link href="/" className="brand" aria-label="Nexus-Tech Solutions — home">
             <span className="brand-mark brand-mark--img" aria-hidden="true">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo-mark.png" alt="" width={480} height={391} />
+              <img src="/logo-mark.png" alt="Nexus-Tech Solutions" width={480} height={391} />
             </span>
             <span className="brand-word">NEXUS&#8209;TECH</span>
           </Link>
