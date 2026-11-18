@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
 
@@ -18,7 +19,9 @@ type CaseStudy = {
   points: string[];
   stack: string[];
   github?: string;
-  image: { src: string; alt: string };
+  detailsUrl?: string;
+  liveDemo?: string;
+  image: { src: string; alt: string; height?: number };
 };
 
 /**
@@ -62,14 +65,16 @@ const CASE_STUDIES: CaseStudy[] = [
     name: "NexusCRM",
     category: "CRM / Business Software",
     tagline:
-      "Scalable CRM platform for managing customer lifecycles and sales pipelines.",
+      "Real estate CRM for property agencies: leads, inventory, deals, payment plans and commissions in one place.",
     points: [
-      "Customer lifecycles managed in one place",
-      "Sales pipeline tracking from lead to close",
-      "Architecture designed to scale with the business",
+      "Property inventory with live Available, Booked, Sold and Rented status",
+      "Payment plans, instalments and receipts on every deal",
+      "Owner earnings: commission received, minus agent shares and expenses",
     ],
-    stack: ["TypeScript", "Express"],
-    image: { src: "/work/nexuscrm-pipeline.webp", alt: "NexusCRM sales pipeline kanban board tracking deals from lead intake to closed won" },
+    stack: ["React", "TypeScript", "Express", "SQLite"],
+    detailsUrl: "/work/nexuscrm/",
+    liveDemo: "https://nexuscrm-jet.vercel.app",
+    image: { src: "/work/nexuscrm-dashboard.webp", alt: "NexusCRM dashboard showing total commission, pending commission, commission paid, active leads and the Owner's Total Earnings", height: 789 },
   },
   {
     index: "04",
@@ -124,14 +129,27 @@ export default function WorkPage() {
               </p>
               <div className="case-body">
                 <figure className="case-figure">
-                  <Image
-                    src={study.image.src}
-                    alt={study.image.alt}
-                    width={1600}
-                    height={893}
-                    sizes="(max-width: 800px) 100vw, 1100px"
-                    loading="lazy"
-                  />
+                  {study.detailsUrl ? (
+                    <Link href={study.detailsUrl} aria-label={`${study.name} product page`}>
+                      <Image
+                        src={study.image.src}
+                        alt={study.image.alt}
+                        width={1600}
+                        height={study.image.height ?? 893}
+                        sizes="(max-width: 800px) 100vw, 1100px"
+                        loading="lazy"
+                      />
+                    </Link>
+                  ) : (
+                    <Image
+                      src={study.image.src}
+                      alt={study.image.alt}
+                      width={1600}
+                      height={study.image.height ?? 893}
+                      sizes="(max-width: 800px) 100vw, 1100px"
+                      loading="lazy"
+                    />
+                  )}
                 </figure>
                 <p className="microcopy">{study.category}</p>
                 <h2 className="case-title">{study.name}</h2>
@@ -157,6 +175,27 @@ export default function WorkPage() {
                       className="text-link"
                     >
                       View the code on GitHub{" "}
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  </p>
+                )}
+                {study.detailsUrl && (
+                  <p style={{ marginTop: "1.25rem" }}>
+                    <Link href={study.detailsUrl} className="text-link">
+                      See NexusCRM in detail{" "}
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  </p>
+                )}
+                {study.liveDemo && (
+                  <p style={{ marginTop: "0.75rem" }}>
+                    <a
+                      href={study.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-link"
+                    >
+                      Try the live demo{" "}
                       <span aria-hidden="true">→</span>
                     </a>
                   </p>
