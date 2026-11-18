@@ -7,7 +7,15 @@ import Reveal from "@/components/Reveal";
  * against actual work. No invented descriptions, metrics or clients —
  * case-study detail arrives in the work phase.
  */
-const PROJECTS = [
+type Project = {
+  name: string;
+  category: string;
+  tags: string[];
+  image: string;
+  href?: string;
+};
+
+const PROJECTS: Project[] = [
   {
     name: "NexusPOS",
     category: "SaaS / Business Software",
@@ -23,8 +31,9 @@ const PROJECTS = [
   {
     name: "NexusCRM",
     category: "CRM / Business Software",
-    tags: ["TypeScript", "Express"],
-    image: "/work/nexuscrm-pipeline.webp",
+    tags: ["React", "TypeScript", "Express", "SQLite"],
+    image: "/work/nexuscrm-dashboard.webp",
+    href: "/work/nexuscrm/",
   },
   {
     name: "CliniX AI",
@@ -56,8 +65,8 @@ export default function WorkSection() {
         </Reveal>
 
         <div className="work-grid">
-          {PROJECTS.map((project, i) => (
-            <Reveal key={project.name} delay={Math.min(i, 3) * 70}>
+          {PROJECTS.map((project, i) => {
+            const card = (
               <article
                 className="work-card"
                 data-index={`0${i + 1}`}
@@ -83,8 +92,26 @@ export default function WorkSection() {
                   ))}
                 </div>
               </article>
-            </Reveal>
-          ))}
+            );
+            return (
+              <Reveal key={project.name} delay={Math.min(i, 3) * 70}>
+                {project.href ? (
+                  <Link
+                    href={project.href}
+                    style={{
+                      display: "block",
+                      color: "inherit",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {card}
+                  </Link>
+                ) : (
+                  card
+                )}
+              </Reveal>
+            );
+          })}
         </div>
 
         <Reveal>
